@@ -1,109 +1,40 @@
-"use client";
-
-import { useCart } from "@/context/CartContext";
-
+import Link from "next/link";
 
 export default function CarritoPage() {
-
-
-  const { cart } = useCart();
-
-
-
   return (
+    <main className="min-h-screen bg-gray-50 px-6 py-32">
+      <div className="mx-auto max-w-5xl">
 
-    <main className="min-h-screen bg-white py-20">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-yellow-600"
+        >
+          ← Volver al inicio
+        </Link>
 
-
-      <div className="mx-auto max-w-5xl px-6">
-
-
-        <h1 className="text-5xl font-bold text-slate-900">
-          Tu pedido
+        <h1 className="mt-6 text-4xl font-bold text-slate-900">
+          Mi carrito
         </h1>
 
+        <p className="mt-3 text-gray-600">
+          Aquí aparecerán los productos que agregues a tu carrito.
+        </p>
 
-
-        {cart.length === 0 ? (
-
-
-          <p className="mt-10 text-xl text-gray-600">
-            No tienes productos agregados todavía.
-          </p>
-
-
-
-        ) : (
-
-
-
-          <div className="mt-10 space-y-5">
-
-
-
-            {cart.map((producto) => (
-
-
-
-              <div
-
-                key={producto.id}
-
-                className="
-                  rounded-2xl
-                  border
-                  border-gray-200
-                  p-6
-                  shadow-sm
-                "
-
-              >
-
-
-
-                <h2 className="text-2xl font-bold text-slate-900">
-                  {producto.nombre}
-                </h2>
-
-
-
-
-                <p className="mt-2 text-gray-600">
-                  Código: {producto.codigo}
-                </p>
-
-
-
-
-                <p className="mt-2 text-gray-600">
-                  Producto agregado al pedido
-                </p>
-
-
-
-
-              </div>
-
-
-
-            ))}
-
-
-
+        <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-10 text-center shadow-sm">
+          <div className="text-5xl">
+            🛒
           </div>
 
+          <h2 className="mt-5 text-2xl font-semibold text-slate-900">
+            Tu carrito está vacío
+          </h2>
 
-
-        )}
-
-
+          <p className="mt-2 text-gray-500">
+            Explora nuestro catálogo y agrega tus productos.
+          </p>
+        </div>
 
       </div>
-
-
-
     </main>
-
   );
-
 }

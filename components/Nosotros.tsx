@@ -1,7 +1,9 @@
 export default function Nosotros() {
   return (
-    <section className="bg-white py-20">
-
+    <section
+      id="nosotros"
+      className="bg-white py-20 scroll-mt-20"
+    >
       <div className="mx-auto max-w-7xl px-6">
 
         <h2 className="text-4xl font-bold text-slate-900">
@@ -25,7 +27,6 @@ export default function Nosotros() {
         </p>
 
       </div>
-
     </section>
   );
 }

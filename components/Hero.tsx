@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section
@@ -7,19 +9,23 @@ export default function Hero() {
       }}
     >
       {/* Capa sutil para dar profundidad a la imagen */}
-      <div className="absolute inset-0 bg-black/20"></div>
 
-      {/* Botones */}
       <div className="relative mx-auto flex min-h-[650px] max-w-7xl items-end px-6 pb-16">
         <div className="flex gap-4">
 
-          <button className="rounded-xl bg-yellow-500 px-8 py-4 font-semibold text-black shadow-lg transition hover:bg-yellow-400">
+          <Link
+            href="/catalogo"
+            className="rounded-xl bg-yellow-500 px-8 py-4 font-semibold text-black shadow-lg transition hover:bg-yellow-400"
+          >
             Ver catálogo
-          </button>
+          </Link>
 
-          <button className="rounded-xl border border-white bg-black/20 px-8 py-4 font-semibold text-white shadow-lg backdrop-blur-sm transition hover:bg-white hover:text-black">
+          <Link
+            href="/#contacto"
+            className="rounded-xl border border-white bg-black/20 px-8 py-4 font-semibold text-white shadow-lg backdrop-blur-sm transition hover:bg-white hover:text-black"
+          >
             Contactarnos
-          </button>
+          </Link>
 
         </div>
       </div>
