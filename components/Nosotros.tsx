@@ -2,15 +2,15 @@ export default function Nosotros() {
   return (
     <section
       id="nosotros"
-      className="bg-white py-20 scroll-mt-20"
+      className="bg-white px-4 py-16 sm:px-6 sm:py-20"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-5xl">
 
-        <h2 className="text-4xl font-bold text-slate-900">
+        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
           Sobre Aaronmaq
         </h2>
 
-        <p className="mt-6 text-lg text-gray-600">
+        <p className="mt-5 text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg">
           Somos líderes en el diseño, fabricación y comercialización de
           remachadoras, troqueles e insumos de confección. Durante nuestra
           trayectoria hemos acompañado a la industria textil y de la moda,
@@ -18,7 +18,7 @@ export default function Nosotros() {
           superior.
         </p>
 
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-base leading-relaxed text-gray-600 sm:text-lg">
           Nuestra experiencia nos ha consolidado como un aliado estratégico
           para empresas nacionales e internacionales. Gracias a nuestros
           estándares de producción y la actualización constante de nuestros

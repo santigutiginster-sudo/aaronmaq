@@ -4,6 +4,8 @@ import Servicios from "../components/Servicios";
 import Nosotros from "../components/Nosotros";
 import Opiniones from "../components/Opiniones";
 import Contacto from "../components/Contacto";
+import WhatsApp from "../components/WhatsApp";
+import PromocionRegalo from "../components/PromocionRegalo";
 
 export default function Home() {
   return (
@@ -20,6 +22,10 @@ export default function Home() {
       <Opiniones />
 
       <Contacto />
+
+      <WhatsApp />
+
+      <PromocionRegalo />
 
     </main>
   );
