@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       className="relative min-h-[520px] bg-cover bg-center bg-no-repeat sm:min-h-[650px]"
       style={{
-        backgroundImage: "url('/images/Portada.empresarial.jpg')",
+        backgroundImage: "url('/images/hero/portada-aaronmaq.png')",
       }}
     >
       {/* Capa sutil para dar profundidad a la imagen */}

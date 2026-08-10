@@ -14,7 +14,7 @@ export const productos = [
       "Pavonado",
     ],
     uso: "Confección y prendas",
-    precio: 0,
+    precio: 40000,
     descripcion:
       "Broche metálico tipo cazuela para aplicaciones de confección.",
   },
@@ -33,7 +33,7 @@ export const productos = [
       "Oro rosa",
     ],
     uso: "Confección industrial",
-    precio: 0,
+    precio: 40000,
     descripcion:
       "Broche metálico americano para diferentes aplicaciones.",
   },
@@ -52,7 +52,7 @@ export const productos = [
       "Colores personalizados",
     ],
     uso: "Prendas, bebés y confección",
-    precio: 0,
+    precio: 40000,
     descripcion:
       "Broche plástico para prendas y aplicaciones textiles.",
   },

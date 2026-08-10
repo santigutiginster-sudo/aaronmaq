@@ -1,42 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 export default function Carrito() {
-  const [abierto, setAbierto] = useState(false);
+  const { cart } = useCart();
 
-  const total = 0;
+  const total = cart.reduce(
+    (suma, producto) => suma + producto.precio * producto.cantidad,
+    0
+  );
+
+  const cantidadProductos = cart.reduce(
+    (cantidad, producto) => cantidad + producto.cantidad,
+    0
+  );
+
   const envioGratis = 250000;
   const porcentaje = Math.min((total / envioGratis) * 100, 100);
   const faltante = Math.max(envioGratis - total, 0);
 
   return (
-    <>
-      <button
-        type="button"
+    <div className="relative">
+      <Link
+        href="/carrito"
         aria-label="Carrito"
-        onClick={() => setAbierto(!abierto)}
-        className="text-slate-600 transition hover:text-yellow-600"
+        className="relative flex text-slate-600 transition hover:text-yellow-600"
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M3 4h2l2.5 11a2 2 0 0 0 2 1.5h7.5a2 2 0 0 0 2-1.5L21 8H6" />
-          <circle cx="9" cy="20" r="1" />
-          <circle cx="18" cy="20" r="1" />
-        </svg>
-      </button>
+        <span className="text-2xl">🛒</span>
 
-      {abierto && (
-        <div className="absolute right-6 top-16 z-50 w-80 rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
+        {cantidadProductos > 0 && (
+          <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-yellow-500 px-1 text-xs font-bold text-black">
+            {cantidadProductos}
+          </span>
+        )}
+      </Link>
 
+      {cart.length > 0 && (
+        <div className="absolute right-0 top-10 z-50 w-80 rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
           <h2 className="text-xl font-bold text-slate-900">
             Mi carrito
           </h2>
@@ -49,7 +50,6 @@ export default function Carrito() {
             para completar el envío gratis.
           </p>
 
-          {/* Barra de progreso */}
           <div className="mt-5">
             <div className="h-2 overflow-hidden rounded-full bg-gray-200">
               <div
@@ -69,19 +69,40 @@ export default function Carrito() {
             </div>
           </div>
 
-          {/* Carrito vacío */}
-          <div className="mt-8 text-center">
-            <div className="text-4xl">
-              🛒
-            </div>
+          <div className="mt-5 space-y-3">
+            {cart.map((producto) => (
+              <div
+                key={producto.id}
+                className="flex items-center justify-between border-b border-gray-100 pb-3"
+              >
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    {producto.nombre}
+                  </p>
 
-            <p className="mt-3 text-sm text-gray-500">
-              Tu carrito está vacío.
-            </p>
+                  <p className="text-sm text-gray-500">
+                    Cantidad: {producto.cantidad}
+                  </p>
+                </div>
+
+                <p className="font-semibold text-yellow-600">
+                  $
+                  {(
+                    producto.precio * producto.cantidad
+                  ).toLocaleString("es-CO")}
+                </p>
+              </div>
+            ))}
           </div>
 
+          <Link
+            href="/carrito"
+            className="mt-6 block w-full rounded-xl bg-slate-900 px-6 py-3 text-center font-semibold text-white transition hover:bg-yellow-500 hover:text-black"
+          >
+            Ver carrito
+          </Link>
         </div>
       )}
-    </>
+    </div>
   );
 }

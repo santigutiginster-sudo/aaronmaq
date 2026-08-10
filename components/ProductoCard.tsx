@@ -22,19 +22,7 @@ export default function ProductoCard({ producto }: Props) {
   const { agregarProducto } = useCart();
 
   return (
-    <div
-      className="
-        rounded-2xl
-        border
-        border-gray-200
-        p-8
-        shadow-sm
-        transition
-        hover:shadow-xl
-        hover:border-yellow-500
-      "
-    >
-
+    <div>
       <div
         className="
           h-48
@@ -49,21 +37,17 @@ export default function ProductoCard({ producto }: Props) {
         Imagen próximamente
       </div>
 
-
       <h2 className="mt-6 text-2xl font-bold text-slate-900">
         {producto.nombre}
       </h2>
-
 
       <p className="mt-3 text-gray-600">
         Código: {producto.codigo}
       </p>
 
-
       <p className="mt-3 text-gray-600">
         {producto.descripcion}
       </p>
-
 
       {producto.material && (
         <p className="mt-2 text-gray-600">
@@ -71,13 +55,11 @@ export default function ProductoCard({ producto }: Props) {
         </p>
       )}
 
-
       {producto.acabado && (
         <p className="mt-2 text-gray-600">
           Acabado: {producto.acabado}
         </p>
       )}
-
 
       {producto.uso && (
         <p className="mt-2 text-gray-600">
@@ -85,16 +67,13 @@ export default function ProductoCard({ producto }: Props) {
         </p>
       )}
 
-
       {producto.colores && (
         <div className="mt-4">
-
           <p className="font-semibold text-slate-900">
             Colores:
           </p>
 
           <div className="mt-2 flex flex-wrap gap-2">
-
             {producto.colores.map((color) => (
               <span
                 key={color}
@@ -109,17 +88,19 @@ export default function ProductoCard({ producto }: Props) {
                 {color}
               </span>
             ))}
-
           </div>
-
         </div>
       )}
 
-
-      <p className="mt-6 text-xl font-bold text-yellow-600">
-        Precio próximamente
-      </p>
-
+      {producto.precio > 0 ? (
+        <p className="mt-6 text-xl font-bold text-yellow-600">
+          ${producto.precio.toLocaleString("es-CO")} COP
+        </p>
+      ) : (
+        <p className="mt-6 text-xl font-bold text-gray-500">
+          Precio próximamente
+        </p>
+      )}
 
       <button
         onClick={() =>
@@ -130,6 +111,7 @@ export default function ProductoCard({ producto }: Props) {
             precio: producto.precio,
           })
         }
+        disabled={producto.precio <= 0}
         className="
           mt-6
           w-full
@@ -139,13 +121,17 @@ export default function ProductoCard({ producto }: Props) {
           py-3
           font-semibold
           text-black
+          transition
           hover:bg-yellow-400
+          disabled:cursor-not-allowed
+          disabled:bg-gray-300
+          disabled:text-gray-500
         "
       >
-        Agregar al carrito
+        {producto.precio > 0
+          ? "Agregar al carrito"
+          : "Precio próximamente"}
       </button>
-
-
     </div>
   );
 }
