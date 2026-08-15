@@ -15,10 +15,10 @@ export default function Buscador() {
     return (
       producto.nombre.toLowerCase().includes(texto) ||
       producto.categoria.toLowerCase().includes(texto) ||
-      producto.codigo.toLowerCase().includes(texto) ||
-      producto.material.toLowerCase().includes(texto) ||
+      producto.codigo?.toLowerCase().includes(texto) ||
+      producto.material?.toLowerCase().includes(texto) ||
       producto.acabado?.toLowerCase().includes(texto) ||
-      producto.uso.toLowerCase().includes(texto) ||
+      producto.uso?.toLowerCase().includes(texto) ||
       producto.descripcion.toLowerCase().includes(texto) ||
       producto.medida?.toLowerCase().includes(texto)
     );
@@ -50,7 +50,6 @@ export default function Buscador() {
       {abierto && (
         <div className="absolute left-0 right-0 top-20 border-t border-slate-200 bg-white px-6 py-5 shadow-sm">
           <div className="mx-auto max-w-7xl">
-
             <input
               type="text"
               autoFocus
@@ -73,7 +72,7 @@ export default function Buscador() {
                       </p>
 
                       <div className="mt-1 text-sm text-slate-500">
-                        Código: {producto.codigo}
+                        Código: {producto.codigo ?? "No disponible"}
                       </div>
 
                       <div className="mt-2 text-sm text-slate-600">
