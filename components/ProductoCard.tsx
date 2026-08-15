@@ -34,8 +34,6 @@ export default function ProductoCard({ producto }: Props) {
    * =====================================================
    * AGREGAR AL CARRITO
    * =====================================================
-   *
-   * Este botón sigue utilizando el carrito normal.
    */
 
   function agregarSeleccionado() {
@@ -57,13 +55,6 @@ export default function ProductoCard({ producto }: Props) {
    * =====================================================
    * COMPRAR AHORA
    * =====================================================
-   *
-   * IMPORTANTE:
-   *
-   * NO utilizamos agregarProducto().
-   *
-   * Guardamos el producto como compra directa y
-   * posteriormente vamos al checkout.
    */
 
   function comprarAhora() {
@@ -110,9 +101,21 @@ export default function ProductoCard({ producto }: Props) {
         href={urlProducto}
         className="block"
       >
-        {/* IMAGEN */}
+        {/* =================================================
+            IMAGEN
+        ================================================= */}
 
-        <div className="relative h-52 w-full overflow-hidden bg-gray-50">
+        <div
+          className="
+            relative
+            h-40
+            sm:h-44
+            lg:h-52
+            w-full
+            overflow-hidden
+            bg-gray-50
+          "
+        >
           {producto.imagen ? (
             <Image
               src={producto.imagen}
@@ -126,7 +129,9 @@ export default function ProductoCard({ producto }: Props) {
               className="
                 object-contain
                 object-center
-                p-6
+                p-4
+                sm:p-5
+                lg:p-6
                 transition
                 duration-300
                 hover:scale-105
@@ -139,19 +144,24 @@ export default function ProductoCard({ producto }: Props) {
           )}
         </div>
 
-        {/* NOMBRE */}
+        {/* =================================================
+            NOMBRE
+        ================================================= */}
 
-        <div className="px-4 pt-4">
+        <div className="px-3 pt-3 sm:px-4 sm:pt-4">
           <h2
             className="
-              min-h-[48px]
+              min-h-[44px]
               text-center
-              text-lg
+              text-base
               font-bold
-              leading-6
+              leading-5
               text-slate-900
               transition
               hover:text-yellow-600
+              sm:min-h-[48px]
+              sm:text-lg
+              sm:leading-6
             "
           >
             {producto.nombre}
@@ -163,16 +173,18 @@ export default function ProductoCard({ producto }: Props) {
           INFORMACIÓN
       ================================================= */}
 
-      <div className="px-4 pb-5 pt-2">
+      <div className="px-3 pb-4 pt-1 sm:px-4 sm:pb-5 sm:pt-2">
 
-        {/* PRECIO */}
+        {/* =================================================
+            PRECIO
+        ================================================= */}
 
         {precio > 0 ? (
-          <p className="mt-2 text-center text-xl font-bold text-yellow-600">
+          <p className="mt-2 text-center text-lg font-bold text-yellow-600 sm:text-xl">
             ${precio.toLocaleString("es-CO")} COP
           </p>
         ) : (
-          <p className="mt-2 text-center text-lg font-semibold text-gray-500">
+          <p className="mt-2 text-center text-base font-semibold text-gray-500 sm:text-lg">
             Precio próximamente
           </p>
         )}
@@ -182,13 +194,13 @@ export default function ProductoCard({ producto }: Props) {
         ================================================= */}
 
         {precio > 0 && (
-          <div className="mt-5">
+          <div className="mt-4 sm:mt-5">
             <div
               className="
                 mx-auto
                 flex
-                h-11
-                max-w-[150px]
+                h-10
+                max-w-[140px]
                 items-center
                 justify-between
                 rounded-xl
@@ -196,8 +208,11 @@ export default function ProductoCard({ producto }: Props) {
                 border-gray-200
                 bg-white
                 px-2
+                sm:h-11
+                sm:max-w-[150px]
               "
             >
+
               {/* MENOS */}
 
               <button
@@ -256,6 +271,7 @@ export default function ProductoCard({ producto }: Props) {
               >
                 +
               </button>
+
             </div>
           </div>
         )}
@@ -269,7 +285,7 @@ export default function ProductoCard({ producto }: Props) {
             type="button"
             onClick={agregarSeleccionado}
             className="
-              mt-4
+              mt-3
               flex
               w-full
               items-center
@@ -277,14 +293,17 @@ export default function ProductoCard({ producto }: Props) {
               gap-2
               rounded-xl
               bg-yellow-500
-              px-4
-              py-3
+              px-3
+              py-2.5
               text-sm
               font-bold
               text-black
               transition
               hover:bg-yellow-400
               active:scale-[0.98]
+              sm:mt-4
+              sm:px-4
+              sm:py-3
             "
           >
             🛒 Agregar al carrito
@@ -298,14 +317,14 @@ export default function ProductoCard({ producto }: Props) {
         <Link
           href={urlProducto}
           className="
-            mt-3
+            mt-2.5
             block
             w-full
             rounded-xl
             border
             border-gray-300
-            px-4
-            py-3
+            px-3
+            py-2.5
             text-center
             text-sm
             font-semibold
@@ -313,6 +332,9 @@ export default function ProductoCard({ producto }: Props) {
             transition
             hover:border-yellow-500
             hover:bg-yellow-50
+            sm:mt-3
+            sm:px-4
+            sm:py-3
           "
         >
           Ver producto
@@ -327,7 +349,7 @@ export default function ProductoCard({ producto }: Props) {
             type="button"
             onClick={comprarAhora}
             className="
-              mt-3
+              mt-2.5
               flex
               w-full
               items-center
@@ -335,19 +357,23 @@ export default function ProductoCard({ producto }: Props) {
               gap-2
               rounded-xl
               bg-slate-900
-              px-4
-              py-3
+              px-3
+              py-2.5
               text-sm
               font-bold
               text-white
               transition
               hover:bg-slate-800
               active:scale-[0.98]
+              sm:mt-3
+              sm:px-4
+              sm:py-3
             "
           >
             ⚡ Comprar ahora
           </button>
         )}
+
       </div>
     </div>
   );

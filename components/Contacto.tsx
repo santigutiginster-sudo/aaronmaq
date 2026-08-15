@@ -12,26 +12,26 @@ export default function Contacto() {
   return (
     <section
       id="contacto"
-      className="bg-slate-900 px-4 py-16 text-white sm:px-6 sm:py-20"
+      className="bg-slate-900 px-4 py-10 text-white sm:px-6 sm:py-12 md:py-14"
     >
       <div className="mx-auto max-w-5xl">
 
         {/* TÍTULO */}
-        <h2 className="text-3xl font-bold sm:text-4xl">
+        <h2 className="text-xl font-bold sm:text-2xl md:text-3xl">
           Contáctanos
         </h2>
 
-        <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-300 sm:mt-6 sm:text-lg">
+        <p className="mt-3 max-w-3xl text-xs leading-relaxed text-gray-300 sm:mt-4 sm:text-sm md:text-base">
           Estamos listos para ayudarte con soluciones en troqueles,
           remachadoras e insumos para la industria de confección,
           tapicería y marroquinería.
         </p>
 
         {/* INFORMACIÓN */}
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <div className="mt-5 grid gap-6 sm:mt-6 md:grid-cols-2 md:gap-8">
 
           {/* DATOS */}
-          <div className="space-y-5 text-base sm:text-lg">
+          <div className="space-y-3 text-xs sm:space-y-4 sm:text-sm md:text-base">
 
             {/* TELÉFONO */}
             <div>
@@ -53,7 +53,7 @@ export default function Contacto() {
                 📧 Correo
               </p>
 
-              <p className="mt-1 text-gray-300">
+              <p className="mt-1 break-words text-gray-300">
                 aaronmaq2020@gmail.com
               </p>
             </div>
@@ -71,30 +71,30 @@ export default function Contacto() {
               </p>
             </div>
 
-            {/* BOTÓN WHATSAPP */}
+            {/* WHATSAPP */}
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="
-                mt-2
+                mt-1
                 inline-flex
                 w-full
                 items-center
                 justify-center
                 rounded-xl
                 bg-green-500
-                px-6
-                py-3
-                text-sm
+                px-4
+                py-2.5
+                text-xs
                 font-bold
                 text-white
                 transition
                 hover:bg-green-600
                 sm:w-auto
-                sm:px-8
-                sm:py-4
-                sm:text-base
+                sm:px-6
+                sm:py-3
+                sm:text-sm
               "
             >
               💬 Escríbenos por WhatsApp
@@ -102,26 +102,34 @@ export default function Contacto() {
           </div>
 
           {/* LOCAL */}
-          <div>
+          <div className="min-w-0">
 
-            <p className="mb-3 text-lg font-semibold">
+            <p className="mb-2 text-sm font-semibold sm:text-base">
               🏪 Visítanos
             </p>
 
             {/* FOTO DEL LOCAL */}
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-2xl border border-slate-700"
-            >
-              <div className="relative w-full">
+            <div className="flex justify-center">
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  group
+                  block
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  border-slate-700
+                "
+              >
                 <Image
                   src="/images/local/aaronmaq-local.1.jpeg"
                   alt="Local AARONMAQ"
                   width={1669}
                   height={2048}
                   className="
+                    block
                     h-auto
                     w-full
                     transition
@@ -130,8 +138,8 @@ export default function Contacto() {
                   "
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
-            </a>
+              </a>
+            </div>
 
             {/* MAPS */}
             <a
@@ -139,22 +147,22 @@ export default function Contacto() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                mt-4
+                mt-2
                 flex
                 w-full
                 items-center
                 justify-center
                 rounded-xl
                 bg-yellow-500
-                px-6
-                py-3
-                text-sm
+                px-4
+                py-2.5
+                text-xs
                 font-bold
                 text-black
                 transition
                 hover:bg-yellow-400
-                sm:py-4
-                sm:text-base
+                sm:py-3
+                sm:text-sm
               "
             >
               📍 Cómo llegar a nuestro local
