@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Cuenta() {
   const [abierta, setAbierta] = useState(false);
 
   return (
-    <>
+    <div className="relative">
       <button
         type="button"
         aria-label="Mi cuenta"
@@ -29,20 +30,28 @@ export default function Cuenta() {
       </button>
 
       {abierta && (
-        <div className="absolute right-20 top-16 z-50 w-64 rounded-2xl border border-slate-200 bg-white p-5 shadow-xl">
+        <div className="absolute right-0 top-10 z-50 w-64 rounded-2xl border border-slate-200 bg-white p-5 shadow-xl">
           <h3 className="text-lg font-bold text-slate-900">
             Mi cuenta
           </h3>
 
-          <button className="mt-4 w-full rounded-lg bg-slate-900 py-2.5 text-sm font-semibold text-white transition hover:bg-yellow-500 hover:text-black">
+          <Link
+            href="/cuenta?modo=registro"
+            onClick={() => setAbierta(false)}
+            className="mt-4 block w-full rounded-lg bg-slate-900 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-yellow-500 hover:text-black"
+          >
             CREAR CUENTA
-          </button>
+          </Link>
 
-          <button className="mt-3 w-full rounded-lg border border-slate-300 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-yellow-600 hover:text-yellow-600">
+          <Link
+            href="/cuenta?modo=login"
+            onClick={() => setAbierta(false)}
+            className="mt-3 block w-full rounded-lg border border-slate-300 py-2.5 text-center text-sm font-semibold text-slate-700 transition hover:border-yellow-600 hover:text-yellow-600"
+          >
             INICIAR SESIÓN
-          </button>
+          </Link>
         </div>
       )}
-    </>
+    </div>
   );
 }

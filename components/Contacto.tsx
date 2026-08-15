@@ -1,4 +1,14 @@
+"use client";
+
+import Image from "next/image";
+
 export default function Contacto() {
+  const mapsUrl =
+    "https://www.google.com/maps/place/Cl.+43+Sur+%2352c-24,+Bogot%C3%A1/@4.5964703,-74.140779,17z/data=!3m1!4b1!4m9!1m2!2m1!1sCl.+43+Sur+%2358s+-23!3m5!1s0x8e3f9eda9ccd170d:0x311af81af765ecd9!8m2!3d4.596465!4d-74.1359081!16s%2Fg%2F11csg1tm89";
+
+  const whatsappUrl =
+    "https://wa.me/573208108023?text=Hola%20AARONMAQ%20%F0%9F%91%8B%20Quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n";
+
   return (
     <section
       id="contacto"
@@ -6,53 +16,152 @@ export default function Contacto() {
     >
       <div className="mx-auto max-w-5xl">
 
+        {/* TÍTULO */}
         <h2 className="text-3xl font-bold sm:text-4xl">
           Contáctanos
         </h2>
 
-        <p className="mt-5 text-base leading-relaxed text-gray-300 sm:mt-6 sm:text-lg">
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-300 sm:mt-6 sm:text-lg">
           Estamos listos para ayudarte con soluciones en troqueles,
           remachadoras e insumos para la industria de confección,
           tapicería y marroquinería.
         </p>
 
-        <div className="mt-7 space-y-4 text-base sm:mt-8 sm:text-lg">
-          <p>
-            <strong>Teléfono:</strong> Próximamente
-          </p>
+        {/* INFORMACIÓN */}
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
 
-          <p>
-            <strong>Correo:</strong> Próximamente
-          </p>
+          {/* DATOS */}
+          <div className="space-y-5 text-base sm:text-lg">
 
-          <p>
-            <strong>Ubicación:</strong> Colombia
-          </p>
+            {/* TELÉFONO */}
+            <div>
+              <p className="font-semibold text-white">
+                📞 Teléfono
+              </p>
+
+              <a
+                href="tel:+573208108023"
+                className="mt-1 inline-block text-gray-300 transition hover:text-yellow-400"
+              >
+                320 810 8023
+              </a>
+            </div>
+
+            {/* CORREO */}
+            <div>
+              <p className="font-semibold text-white">
+                📧 Correo
+              </p>
+
+              <p className="mt-1 text-gray-300">
+                aaronmaq2020@gmail.com
+              </p>
+            </div>
+
+            {/* UBICACIÓN */}
+            <div>
+              <p className="font-semibold text-white">
+                📍 Ubicación
+              </p>
+
+              <p className="mt-1 text-gray-300">
+                Cl. 43 Sur #52C-24
+                <br />
+                Bogotá, Colombia
+              </p>
+            </div>
+
+            {/* BOTÓN WHATSAPP */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                mt-2
+                inline-flex
+                w-full
+                items-center
+                justify-center
+                rounded-xl
+                bg-green-500
+                px-6
+                py-3
+                text-sm
+                font-bold
+                text-white
+                transition
+                hover:bg-green-600
+                sm:w-auto
+                sm:px-8
+                sm:py-4
+                sm:text-base
+              "
+            >
+              💬 Escríbenos por WhatsApp
+            </a>
+          </div>
+
+          {/* LOCAL */}
+          <div>
+
+            <p className="mb-3 text-lg font-semibold">
+              🏪 Visítanos
+            </p>
+
+            {/* FOTO DEL LOCAL */}
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden rounded-2xl border border-slate-700"
+            >
+              <div className="relative w-full">
+                <Image
+                  src="/images/local/aaronmaq-local.1.jpeg"
+                  alt="Local AARONMAQ"
+                  width={1669}
+                  height={2048}
+                  className="
+                    h-auto
+                    w-full
+                    transition
+                    duration-500
+                    group-hover:scale-105
+                  "
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </a>
+
+            {/* MAPS */}
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                mt-4
+                flex
+                w-full
+                items-center
+                justify-center
+                rounded-xl
+                bg-yellow-500
+                px-6
+                py-3
+                text-sm
+                font-bold
+                text-black
+                transition
+                hover:bg-yellow-400
+                sm:py-4
+                sm:text-base
+              "
+            >
+              📍 Cómo llegar a nuestro local
+            </a>
+
+          </div>
         </div>
-
-        <button
-          type="button"
-          className="
-            mt-7
-            w-full
-            rounded-xl
-            bg-yellow-500
-            px-6
-            py-3
-            text-sm
-            font-semibold
-            text-black
-            transition
-            hover:bg-yellow-400
-            sm:mt-8
-            sm:w-auto
-            sm:px-8
-            sm:py-4
-            sm:text-base
-          "
-        >
-          Solicitar información
-        </button>
 
       </div>
     </section>

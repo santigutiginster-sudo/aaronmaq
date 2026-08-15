@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Servicios from "../components/Servicios";
 import Nosotros from "../components/Nosotros";
@@ -10,9 +9,6 @@ import PromocionRegalo from "../components/PromocionRegalo";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-
-      <Navbar />
-
       <Hero />
 
       <Servicios />
@@ -26,7 +22,6 @@ export default function Home() {
       <WhatsApp />
 
       <PromocionRegalo />
-
     </main>
   );
 }

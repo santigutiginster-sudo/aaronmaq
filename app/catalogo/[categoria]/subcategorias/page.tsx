@@ -12,18 +12,13 @@ function crearSlug(texto: string) {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
-    .trim();
+    .replace(/\s+/g, "-");
 }
 
-export default async function CategoriaPage({
-  params,
-}: Props) {
+export default async function CategoriaPage({ params }: Props) {
   const { categoria: nombreCategoria } = await params;
 
-  const claveCategoria = nombreCategoria
-    .toLowerCase()
-    .trim();
+  const claveCategoria = nombreCategoria.toLowerCase();
 
   const categoria =
     categorias[
@@ -34,7 +29,6 @@ export default async function CategoriaPage({
     return (
       <main className="min-h-screen bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-
           <h1 className="text-4xl font-bold text-slate-900">
             Categoría no encontrada
           </h1>
@@ -45,7 +39,6 @@ export default async function CategoriaPage({
           >
             ← Volver al catálogo
           </Link>
-
         </div>
       </main>
     );
@@ -86,7 +79,7 @@ export default async function CategoriaPage({
             return (
               <Link
                 key={item}
-                href={`/catalogo/${nombreCategoria}/subcategorias/${slug}`}
+                href={`/catalogo/${nombreCategoria}/${slug}`}
                 className="
                   group
                   rounded-2xl
@@ -102,6 +95,7 @@ export default async function CategoriaPage({
                   hover:shadow-lg
                 "
               >
+
                 <h2 className="text-2xl font-semibold text-slate-900">
                   {item}
                 </h2>
@@ -109,6 +103,7 @@ export default async function CategoriaPage({
                 <p className="mt-3 text-gray-500 transition group-hover:text-yellow-600">
                   Ver productos →
                 </p>
+
               </Link>
             );
           })}

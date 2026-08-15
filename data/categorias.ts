@@ -3,10 +3,16 @@ export const categorias = {
     titulo: "Troqueles",
     descripcion: "Seleccione el tipo de troquel que necesita.",
     subcategorias: [
-      "Broches",
+      "Boton jean",
+      "Broche",
+      "Forrador",
       "Ojales",
-      "Botones Jean",
-      "Casquetes",
+      "Perla",
+      "Perforadores",
+      "Puntera",
+      "Remache",
+      "Sacabocados",
+      "Tache",
     ],
   },
 
@@ -16,9 +22,17 @@ export const categorias = {
     subcategorias: [
       "#3",
       "#4",
+      "#5",
+      "#6",
+      "#1/4",
       "5/16",
       "3/8",
-      "Cortina",
+      "#1/2",
+      "#5/8",
+      "#3/4",
+      "#1 1/2 metálico",
+      "#1 1/2 plástico",
+      "#1 1/2 teflón",
     ],
   },
 
@@ -26,9 +40,9 @@ export const categorias = {
     titulo: "Casquetes",
     descripcion: "Seleccione la aplicación.",
     subcategorias: [
+      "Confección",
       "Tapicería",
-      "Gorras",
-      "Marroquinería",
+      "Gorra",
     ],
   },
 
@@ -67,7 +81,7 @@ export const categorias = {
     descripcion: "Seleccione el tipo de máquina.",
     subcategorias: [
       "Manual",
-      "Neumática",
+      "Electrónica",
     ],
   },
 };
